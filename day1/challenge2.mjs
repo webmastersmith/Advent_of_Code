@@ -1,6 +1,6 @@
 import { sweeps } from './sweep.mjs'
 ;(async function () {
-  // 2 sum three measurements and check if latest sum is larger than the previous measurement?
+  // 2. sum three measurements and check if latest sum is larger than the previous measurement?
   let sweepCount = 0
   let oldSum = 0
 
