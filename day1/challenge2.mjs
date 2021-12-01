@@ -1,17 +1,14 @@
 import { sweeps } from './sweep.mjs'
 ;(async function () {
-  // 1 many measurements are larger than the previous measurement?
+  // 2 many measurements are larger than the previous measurement?
   //   const sweep = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
-  // tried 1094, not right.
+
   let sweepCount = 0
   let oldSum = 0
 
   for (let i = 0; i < sweeps.length; i++) {
     // check for at least three indexes left in array.
-    if (sweeps.length - 2 <= i) {
-      //   console.log(i)
-      continue
-    }
+    if (sweeps.length - 2 <= i) continue
     let a, b, c
     a = sweeps[i]
     b = sweeps[i + 1]
@@ -29,7 +26,7 @@ import { sweeps } from './sweep.mjs'
       sweepCount++
       oldSum = sum
     }
-    // sum was equal or smaller than oldSum, just continue
+    // sum was equal or smaller than oldSum, store value and continue
     oldSum = sum
     continue
   }
