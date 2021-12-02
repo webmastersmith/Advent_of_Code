@@ -1,15 +1,19 @@
-import { sweeps } from './sweep.mjs'
-;(async function () {
-  // 2. sum three measurements and check if latest sum is larger than the previous measurement?
-  let sweepCount = 0
+import * as fs from 'fs'
 
-  for (let i = 0; i < sweeps.length - 2; i++) {
-    const prevSum = sweeps[i - 1] + sweeps[i] + sweeps[i + 1] || Infinity
-    const sum = sweeps[i] + sweeps[i + 1] + sweeps[i + 2]
+const sweeps = fs
+  .readFileSync('./day1/sweeps.txt', 'utf-8')
+  .split(/\r?\n/)
+  .map((num) => +num)
 
-    // check if sum is bigger than prevSum
-    if (sum > prevSum) sweepCount++
-  }
+// Challenge 2. sum three measurements and check if sum is larger than the previous sum.
+let sweepCount = 0
 
-  console.log(sweepCount)
-})()
+for (let i = 0; i < sweeps.length - 2; i++) {
+  const prevSum = sweeps[i - 1] + sweeps[i] + sweeps[i + 1] || Infinity
+  const sum = sweeps[i] + sweeps[i + 1] + sweeps[i + 2]
+
+  // check if sum is bigger than prevSum
+  if (sum > prevSum) sweepCount++
+}
+
+console.log(sweepCount) //1486
