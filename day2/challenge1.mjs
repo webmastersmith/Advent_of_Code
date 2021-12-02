@@ -5,7 +5,6 @@ const coords = fs
   .split(/\r?\n/)
   .map((line) => line.split(' '))
   .map((arr) => [arr[0], +arr[1]])
-// console.log(coords)
 
 // day 2, challenge 1. What do you get if you multiply your final horizontal position by your final depth?
 const testCoords = [
