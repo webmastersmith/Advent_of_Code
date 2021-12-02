@@ -2,31 +2,13 @@ import { sweeps } from './sweep.mjs'
 ;(async function () {
   // 2. sum three measurements and check if latest sum is larger than the previous measurement?
   let sweepCount = 0
-  let oldSum = 0
 
-  for (let i = 0; i < sweeps.length; i++) {
-    // check for at least three indexes left in array.
-    if (sweeps.length - 2 <= i) continue
-    let a, b, c
-    a = sweeps[i]
-    b = sweeps[i + 1]
-    c = sweeps[i + 2]
-    const sum = a + b + c
+  for (let i = 0; i < sweeps.length - 2; i++) {
+    const prevSum = sweeps[i - 1] + sweeps[i] + sweeps[i + 1] || Infinity
+    const sum = sweeps[i] + sweeps[i + 1] + sweeps[i + 2]
 
-    // if index is zero, nothing to compare to, so initialize oldSum with sum.
-    if (i === 0) {
-      oldSum = sum
-      continue
-    }
-
-    // check if sum is bigger than oldSum
-    if (sum > oldSum) {
-      sweepCount++
-      oldSum = sum
-    }
-    // sum was equal or smaller than oldSum, store value and continue
-    oldSum = sum
-    continue
+    // check if sum is bigger than prevSum
+    if (sum > prevSum) sweepCount++
   }
 
   console.log(sweepCount)
