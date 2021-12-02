@@ -38,4 +38,4 @@ function findLocation(coords) {
   return horizontal * depth
 }
 
-console.log(findLocation(coords)) //
+console.log(findLocation(coords)) // 1544000595
