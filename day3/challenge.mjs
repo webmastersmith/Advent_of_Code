@@ -24,9 +24,7 @@ console.log(powerRating) // testBinary.txt: 198, binary.txt: 738234
 function getLifeSupport(binary, type, n, i = 0) {
   if (n === 0) return parseInt(binary.join(''), 2)
   if (binary.length === 1) return parseInt(binary.join(''), 2)
-  binary = binary.filter(
-    (bin) => bin.indexOf(getMostCommonBit(binary, type, i), i) === i
-  )
+  binary = binary.filter((bin) => bin.indexOf(getMostCommonBit(binary, type, i), i) === i)
   return getLifeSupport(binary, type, n - 1, i + 1)
 }
 const lifeSupport = getLifeSupport(binaries, 'oxygen', lineLength) * getLifeSupport(binaries, 'c02', lineLength)
