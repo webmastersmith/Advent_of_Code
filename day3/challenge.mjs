@@ -32,7 +32,6 @@ console.log(
 /*
 Day3, Challenge 2: Life Support
 */
-
 function getLifeSupport(binary, type, n, i = 0) {
   if (n === 0) return parseInt(binary.join(''), 2)
   if (binary.length === 1) return parseInt(binary.join(''), 2)
