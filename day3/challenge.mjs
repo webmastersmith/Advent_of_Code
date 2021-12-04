@@ -19,7 +19,7 @@ function getPowerRating(binary, type, n, i = 0, p = '') {
 const powerRating = getPowerRating(binaries, 'gamma', lineLength) * getPowerRating(binaries, 'epsilon', lineLength)
 console.log(powerRating) // testBinary.txt: 198, binary.txt: 738234
 
-//
+
 // Day3, Challenge 2: Life Support -----------------------------------------------------------------
 function getLifeSupport(binary, type, n, i = 0) {
   if (n === 0) return parseInt(binary.join(''), 2)
@@ -28,4 +28,4 @@ function getLifeSupport(binary, type, n, i = 0) {
   return getLifeSupport(binary, type, n - 1, i + 1)
 }
 const lifeSupport = getLifeSupport(binaries, 'oxygen', lineLength) * getLifeSupport(binaries, 'c02', lineLength)
-console.log(lifeSupport) // testBinary: 230 , binary: 3969126
+console.log(lifeSupport) // testBinary: 230, binary: 3969126
